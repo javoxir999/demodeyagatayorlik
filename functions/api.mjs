@@ -10,17 +10,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const router = express.Router();
 
-// Bosh sahifa - alohida index.html ni o'qish
+// Bosh sahifa - dist/index.html ni yuklash
 router.get('/', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'dist', 'index.html'));
 });
 
-// Home sahifasi - alohida home.html ni o'qish
+// Home sahifasi - dist/home.html ni yuklash
 router.get('/home', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'dist', 'home.html'));
 });
 
-// Login tekshiruvi
+// Login POST tekshiruvi
 router.post('/login', (req, res) => {
     const { login, password } = req.body;
 
