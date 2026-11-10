@@ -25,7 +25,6 @@ router.post('/login', (req, res) => {
     const { login, password } = req.body;
 
     if (login === 'admin' && password === 'admin123') {
-        // Netlify muhitida home sahifasiga to'g'ri yo'naltirish
         res.redirect('/.netlify/functions/api/home');
     } else {
         res.send('Sizga ruxsat berilmagan! Login yoki parol xato.');
