@@ -10,17 +10,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const router = express.Router();
 
-// Bosh sahifa
+// Bosh sahifa - alohida index.html ni o'qish
 router.get('/', (req, res) => {
-    res.sendFile(path.resolve('dist', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'dist', 'index.html'));
 });
 
-// Home sahifasi
+// Home sahifasi - alohida home.html ni o'qish
 router.get('/home', (req, res) => {
-    res.sendFile(path.resolve('dist', 'home.html'));
+    res.sendFile(path.join(process.cwd(), 'dist', 'home.html'));
 });
 
-// Login POST tekshiruvi
+// Login tekshiruvi
 router.post('/login', (req, res) => {
     const { login, password } = req.body;
 
@@ -31,7 +31,6 @@ router.post('/login', (req, res) => {
     }
 });
 
-// Netlify uchun router prefixini ulash
 app.use('/.netlify/functions/api', router);
 app.use('/', router);
 
